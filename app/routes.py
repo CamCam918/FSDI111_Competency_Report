@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, render_template
 from app import app, db
 from app.database import Message
 
@@ -25,7 +25,9 @@ def read_message_by_id(pk):
     return Message.query.filter_by(id=pk).first()
 
 
-
+@app.get("greeting/<name>")
+def greet(name):
+    return render_template("home.html", name=name)
 #implement the following operations:
 #1. create message
 #2. Scan (display all mesages)
