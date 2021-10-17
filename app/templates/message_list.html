@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}All Messages{% endblock title %}
+
+{% block content %}
+    {% for message in message_list %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Message #{{ message.id }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ message.title }}</h6>
+                <p class="card-text">{{ message.body|truncate(50) }}...</p>
+                <a href="#" class="card-link">Read</a>
+                <a href="#" class="card-link">Update</a>
+                <a href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock content %}
